@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://0lp5w03cckd3"]
+
+[ext_resource type="Script" path="res://win_screen.gd" id="1_acl6j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcxp5"]
+bg_color = Color(0.156863, 0.109804, 0.294118, 0.698039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk08m"]
+bg_color = Color(0.156863, 0.109804, 0.294118, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sur7d"]
+bg_color = Color(0.278431, 0.203922, 0.490196, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjpwm"]
+bg_color = Color(0.105301, 0.0695227, 0.209394, 1)
+corner_radius_top_left = 25
+corner_radius_bottom_right = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o381"]
+bg_color = Color(0.156863, 0.109804, 0.294118, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfvgm"]
+bg_color = Color(0.278431, 0.203922, 0.490196, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pj1da"]
+bg_color = Color(0.105301, 0.0695227, 0.209394, 1)
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
+
+[node name="win_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_acl6j")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -250.5
+offset_right = 448.0
+offset_bottom = 250.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcxp5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_font_sizes/font_size = 52
+text = "You successfully rescheduled"
+horizontal_alignment = 1
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RetryButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_pressed_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_hover_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_focus_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_vk08m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sur7d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jjpwm")
+text = "REPLAY
+"
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_pressed_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_hover_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_focus_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_0o381")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hfvgm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pj1da")
+text = "MAIN MENU
+"
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

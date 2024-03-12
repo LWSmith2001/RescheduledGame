@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=3 uid="uid://0wcnq5db0yvr"]
+
+[ext_resource type="PackedScene" uid="uid://bmp13tl3p3cdq" path="res://scenes/date.tscn" id="1_pswax"]
+[ext_resource type="Script" path="res://scripts/calendar.gd" id="1_u1m13"]
+[ext_resource type="AudioStream" uid="uid://bxyp361b2ept" path="res://assets/sfx/date_selected_sfx.wav" id="3_o0ivc"]
+[ext_resource type="AudioStream" uid="uid://uffbe7gr15pu" path="res://assets/sfx/date_hovered_sfx.wav" id="4_m1dsk"]
+
+[node name="Feb24Calendar" type="Node3D"]
+script = ExtResource("1_u1m13")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.610039, 0.581794, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Sun"
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.401215, 0.581794, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Mon"
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.202467, 0.581794, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Tue"
+
+[node name="Label3D4" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Wed"
+
+[node name="Label3D5" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.196276, 0.581794, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Thur"
+
+[node name="Label3D6" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.396338, 0.581794, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Fri
+"
+
+[node name="Label3D7" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.59213, 0.581794, 0)
+pixel_size = 0.0025
+shaded = true
+text = "Sat
+"
+
+[node name="Dates" type="Node3D" parent="."]
+
+[node name="Date1" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.4, 0.003)
+date = "1"
+
+[node name="Date2" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.4, 0.003)
+date = "2"
+
+[node name="Date3" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.4, 0.003)
+date = "3"
+
+[node name="Date4" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.2, 0.003)
+date = "4"
+
+[node name="Date5" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.2, 0.003)
+date = "5"
+
+[node name="Date6" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.2, 0.003)
+date = "6"
+
+[node name="Date7" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.003)
+date = "7"
+
+[node name="Date8" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.2, 0.003)
+date = "8"
+
+[node name="Date9" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.2, 0.003)
+date = "9"
+
+[node name="Date10" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.2, 0.003)
+date = "10"
+
+[node name="Date11" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0.003)
+date = "11"
+
+[node name="Date12" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0.003)
+date = "12"
+
+[node name="Date13" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0.003)
+date = "13"
+
+[node name="Date14" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.003)
+date = "14"
+
+[node name="Date15" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.003)
+date = "15"
+
+[node name="Date16" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, 0.003)
+date = "16"
+
+[node name="Date17" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0.003)
+date = "17"
+
+[node name="Date18" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.2, 0.003)
+date = "18"
+
+[node name="Date19" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -0.2, 0.003)
+date = "19"
+
+[node name="Date20" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.2, 0.003)
+date = "20"
+
+[node name="Date21" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0.003)
+date = "21"
+
+[node name="Date22" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.2, 0.003)
+date = "22"
+
+[node name="Date23" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, -0.2, 0.003)
+date = "23"
+
+[node name="Date24" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.2, 0.003)
+date = "24"
+
+[node name="Date25" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, -0.4, 0.003)
+date = "25"
+
+[node name="Date26" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, -0.4, 0.003)
+date = "26"
+
+[node name="Date27" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.4, 0.003)
+date = "27"
+
+[node name="Date28" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0.003)
+date = "28"
+
+[node name="Date29" parent="Dates" instance=ExtResource("1_pswax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.4, 0.003)
+date = "29"
+
+[node name="DatePickedSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_o0ivc")
+max_polyphony = 5
+
+[node name="DateHoveredSFX" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_m1dsk")
+max_polyphony = 5

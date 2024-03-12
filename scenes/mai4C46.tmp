@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfnk5sbytt0t5"]
+
+[ext_resource type="PackedScene" uid="uid://bp5da67os537k" path="res://scenes/computer.tscn" id="1_30ytp"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_q5als"]
+[ext_resource type="Texture2D" uid="uid://be6tgu4ga63gq" path="res://assets/icon.svg" id="2_0nrwi"]
+[ext_resource type="PackedScene" uid="uid://0wcnq5db0yvr" path="res://scenes/calendar.tscn" id="2_6wo2n"]
+[ext_resource type="Script" path="res://scenes/FailIcons.gd" id="5_xvb2w"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_q5als")
+player_icon = ExtResource("2_0nrwi")
+player_name = "Player"
+
+[node name="Computer" parent="." instance=ExtResource("1_30ytp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.482295, 0, -1.40069)
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.270498)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+
+[node name="Calendar" parent="." instance=ExtResource("2_6wo2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.813112, 0, -1.43538)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_xvb2w")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0nrwi")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0nrwi")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_0nrwi")

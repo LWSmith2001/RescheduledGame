@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp4fgepo4tiew"]
+
+[ext_resource type="Script" path="res://scripts/computer_content.gd" id="1_o5j1j"]
+[ext_resource type="Texture2D" uid="uid://dv7edbtc0moop" path="res://assets/computerbackground.png" id="2_ohxa3"]
+[ext_resource type="Texture2D" uid="uid://dkkg54kg14cac" path="res://assets/computerminimizeclose.png" id="3_bgjg7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3noy"]
+bg_color = Color(0.156863, 0.109804, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ds5b"]
+bg_color = Color(0.0772367, 0.0476722, 0.163177, 1)
+
+[node name="ComputerContent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5j1j")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ohxa3")
+
+[node name="ChatMessages" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -657.5
+offset_top = -391.0
+offset_right = 657.5
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i3noy")
+
+[node name="MarginContainer" type="MarginContainer" parent="ChatMessages"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ChatMessages/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatMessages/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 303.0
+offset_top = 82.0
+offset_right = 1618.0
+offset_bottom = 151.0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ds5b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.776471, 0.180392, 0.396078, 1)
+theme_override_font_sizes/font_size = 50
+text = "  FriendTalk"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("3_bgjg7")

@@ -1,0 +1,197 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2p3jiky2wesh"]
+
+[ext_resource type="PackedScene" uid="uid://bd6c384yfiatm" path="res://scenes/chat_message.tscn" id="1_rb563"]
+[ext_resource type="Script" path="res://intro_sequence.gd" id="1_uqfrm"]
+[ext_resource type="Texture2D" uid="uid://b7xkm070vuxeu" path="res://assets/user_icons/RescheduledIconPlayuer.png" id="2_kjafo"]
+[ext_resource type="AudioStream" uid="uid://d1lpjtdgsbg1p" path="res://assets/sfx/notification_sfx.wav" id="4_5qc4j"]
+
+[sub_resource type="Animation" id="Animation_kfvu4"]
+resource_name = "new_animation"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ChatMessage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 10, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ChatMessage2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 4, 10, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ChatMessage3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6, 7, 10, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.5, 0.7, 3.4, 3.5, 3.7, 6.4, 6.5, 6.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false, true, false, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.156863, 0.109804, 0.294118, 1), Color(0.156863, 0.109804, 0.294118, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tluh1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ChatMessage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ChatMessage2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ChatMessage3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.156863, 0.109804, 0.294118, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rv0q7"]
+_data = {
+"RESET": SubResource("Animation_tluh1"),
+"new_animation": SubResource("Animation_kfvu4")
+}
+
+[node name="IntroSequence" type="Node2D"]
+script = ExtResource("1_uqfrm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.109804, 0.294118, 1)
+
+[node name="ChatMessage" parent="CanvasLayer" instance=ExtResource("1_rb563")]
+unique_name_in_owner = true
+offset_left = 529.0
+offset_top = 141.0
+offset_right = 1431.0
+offset_bottom = 325.0
+size_flags_horizontal = 6
+sender_icon = ExtResource("2_kjafo")
+sender_name = "Me"
+message_text = "You're all going to hate me"
+
+[node name="ChatMessage2" parent="CanvasLayer" instance=ExtResource("1_rb563")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = 532.0
+offset_top = 394.0
+offset_right = 1434.0
+offset_bottom = 578.0
+sender_icon = ExtResource("2_kjafo")
+sender_name = "Me"
+message_text = "Our usual time doesn't work for me"
+
+[node name="ChatMessage3" parent="CanvasLayer" instance=ExtResource("1_rb563")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = 534.0
+offset_top = 664.0
+offset_right = 1436.0
+offset_bottom = 848.0
+sender_icon = ExtResource("2_kjafo")
+sender_name = "Me"
+message_text = "We're going to have to reschedule"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_rv0q7")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5qc4j")
+volume_db = 3.748
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

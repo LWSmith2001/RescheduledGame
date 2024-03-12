@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmp13tl3p3cdq"]
+
+[ext_resource type="Script" path="res://scripts/date.gd" id="1_3rkal"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1iwmk"]
+size = Vector3(0.2, 0.2, 0.005)
+
+[node name="Date" type="Node3D"]
+script = ExtResource("1_3rkal")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00230408)
+shape = SubResource("BoxShape3D_1iwmk")
+
+[node name="Label3D" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0420459, 0.0575103, -0.00254178)
+pixel_size = 0.0006
+shaded = true
+text = "29"
+font_size = 128
+outline_size = 10
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

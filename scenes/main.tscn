@@ -1,0 +1,201 @@
+[gd_scene load_steps=20 format=3 uid="uid://bfnk5sbytt0t5"]
+
+[ext_resource type="PackedScene" uid="uid://bp5da67os537k" path="res://scenes/computer.tscn" id="1_30ytp"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_q5als"]
+[ext_resource type="PackedScene" uid="uid://0wcnq5db0yvr" path="res://scenes/calendar.tscn" id="2_6wo2n"]
+[ext_resource type="Texture2D" uid="uid://b7xkm070vuxeu" path="res://assets/user_icons/RescheduledIconPlayuer.png" id="2_df1r2"]
+[ext_resource type="PackedScene" uid="uid://c3osm3kqk5n48" path="res://assets/models/arm.glb" id="4_tujuj"]
+[ext_resource type="AudioStream" uid="uid://ba72omkcnkqw" path="res://assets/sfx/typing_sfx.wav" id="5_8lwuu"]
+[ext_resource type="Script" path="res://scenes/FailIcons.gd" id="5_xvb2w"]
+[ext_resource type="PackedScene" uid="uid://eedvpc8xhfae" path="res://assets/models/rescheduled.glb" id="6_32e06"]
+[ext_resource type="AudioStream" uid="uid://c0eaorewe3sy4" path="res://assets/sfx/chair_swivel_left.wav" id="6_ard8d"]
+[ext_resource type="Texture2D" uid="uid://botfrcb57t7al" path="res://assets/guesses_icon.png" id="6_qtc4a"]
+[ext_resource type="Script" path="res://scenes/LeftRightTutorial.gd" id="7_v4osq"]
+[ext_resource type="AudioStream" uid="uid://cm5gmbfedbt53" path="res://assets/sfx/chair_swivel_right.wav" id="7_xh3bw"]
+[ext_resource type="Texture2D" uid="uid://cq1wc6r5clx7x" path="res://assets/a_key.png" id="8_p08up"]
+[ext_resource type="Texture2D" uid="uid://4byv7dw4o0ml" path="res://assets/d_key.png" id="9_lwenf"]
+[ext_resource type="Texture2D" uid="uid://bctcnw1avo7xr" path="res://assets/space_key.png" id="10_ds84f"]
+
+[sub_resource type="Animation" id="Animation_t7nsd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.551437, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [90.0]
+}
+
+[sub_resource type="Animation" id="Animation_17ghg"]
+resource_name = "look_left_to_right"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.551437, 0), Vector3(0.180403, -1.13257, -0.00742746)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [90.0, 51.0199]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgaen"]
+_data = {
+"RESET": SubResource("Animation_t7nsd"),
+"look_left_to_right": SubResource("Animation_17ghg")
+}
+
+[sub_resource type="Environment" id="Environment_yog82"]
+ambient_light_color = Color(0.156863, 0.109804, 0.294118, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.52
+tonemap_white = 16.0
+ssao_enabled = true
+ssao_power = 3.32871
+ssao_horizon = 0.3
+ssil_enabled = true
+ssil_intensity = 2.27
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_blend_mode = 4
+volumetric_fog_enabled = true
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_q5als")
+player_icon = ExtResource("2_df1r2")
+player_name = "Me"
+
+[node name="Computer" parent="." instance=ExtResource("1_30ytp")]
+transform = Transform3D(-0.754111, 0, -0.327105, 0, 0.772, 0, 0.272984, 0, -0.903617, -0.245565, 1.15871, 0.0800747)
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(-0.88718, 0, 0.461423, 0, 1, 0, -0.461423, 0, -0.88718, -0.305822, 0.959443, -1.0168)
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(0.851773, 0, 0.523912, 0, 1, 0, -0.523912, 0, 0.851773, 0.0398254, 0.209758, -0.362163)
+fov = 90.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_fgaen")
+}
+
+[node name="arm" parent="Player" instance=ExtResource("4_tujuj")]
+transform = Transform3D(-0.631497, -0.308609, -0.711318, -4.20696e-08, 0.917381, -0.39801, 0.775379, -0.251342, -0.579324, 0.203442, -0.182191, 0.0345032)
+
+[node name="TypingSFX" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, -0.0484499, -0.203881, -0.902705)
+stream = ExtResource("5_8lwuu")
+
+[node name="SwivelLeftSFX" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, -0.0484499, -0.203881, -0.902705)
+stream = ExtResource("6_ard8d")
+
+[node name="SwivelRightSFX" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, -0.0484499, -0.203881, -0.902705)
+stream = ExtResource("7_xh3bw")
+
+[node name="Calendar" parent="." instance=ExtResource("2_6wo2n")]
+transform = Transform3D(-2.05006e-08, 0, 0.469, 0, 0.469, 0, -0.469, 0, -2.05006e-08, -1.85912, 1.45965, -1.00039)
+days_offset = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_xvb2w")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_qtc4a")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_qtc4a")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_qtc4a")
+
+[node name="LeftRightTutorial" type="Node2D" parent="CanvasLayer"]
+script = ExtResource("7_v4osq")
+
+[node name="AKey" type="Sprite2D" parent="CanvasLayer/LeftRightTutorial"]
+visible = false
+position = Vector2(90, 543)
+texture = ExtResource("8_p08up")
+
+[node name="DKey" type="Sprite2D" parent="CanvasLayer/LeftRightTutorial"]
+position = Vector2(1841, 553)
+texture = ExtResource("9_lwenf")
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer/LeftRightTutorial"]
+position = Vector2(1732, 563)
+
+[node name="Marker2D2" type="Marker2D" parent="CanvasLayer/LeftRightTutorial"]
+position = Vector2(117, 547)
+
+[node name="SpaceKey" type="Sprite2D" parent="CanvasLayer/LeftRightTutorial"]
+visible = false
+position = Vector2(1007, 932)
+texture = ExtResource("10_ds84f")
+
+[node name="rescheduled" parent="." instance=ExtResource("6_32e06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525747, 0, -0.0268248)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yog82")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.264807, -0.742175, 0.615674, -0.293243, 0.670206, 0.681786, -0.918633, 0, -0.395113, 4.36567, 4.01509, -0.458828)
+light_color = Color(0.156863, 0.109804, 0.294118, 1)
+light_energy = 5.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.912263, 0, 0.409605, 0, 1, 0, -0.409605, 0, 0.912263, -0.305233, 1.08141, -0.0881451)
+light_color = Color(0.329412, 0.478431, 0.647059, 1)
+spot_range = 0.634436
+spot_attenuation = 2.21917
+spot_angle = 89.99
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72478, 1.59211, -1.16517)
+light_color = Color(0.87451, 0.6, 0.941176, 1)
+omni_range = 1.4972
